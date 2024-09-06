@@ -10,8 +10,5 @@
       "src": "/(.*)",
       "dest": "main.py"
     }
-  ],
-  "scripts": {
-    "postbuild": "python3 main.py"
-  }
+  ]
 }
