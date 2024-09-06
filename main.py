@@ -1,4 +1,5 @@
 import os
+import time
 from typing import Any
 
 import discord
@@ -22,13 +23,16 @@ class AIBot(commands.AutoShardedBot):
             cog_name = cog.split('.')[-1]
             discord.client._log.info(f"Loaded Command {cog_name}")
             await self.load_extension(f"{cog}")
+            time.sleep(3);
         for cog in EVENT_HANDLERS:
             cog_name = cog.split('.')[-1]
             discord.client._log.info(f"Loaded Event Handler {cog_name}")
             await self.load_extension(f"{cog}")
+            time.sleep(3);
         print('If syncing commands is taking longer than usual you are being ratelimited')
         await self.tree.sync()
         discord.client._log.info(f"Loaded {len(self.commands)} commands")
+        time.sleep(3)
 
 bot = AIBot(command_prefix=[], intents=discord.Intents.all(), help_command=None)
 
